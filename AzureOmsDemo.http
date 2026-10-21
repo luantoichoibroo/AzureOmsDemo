@@ -1,0 +1,6 @@
+@AzureOmsDemo_HostAddress = http://localhost:5241
+
+GET {{AzureOmsDemo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
