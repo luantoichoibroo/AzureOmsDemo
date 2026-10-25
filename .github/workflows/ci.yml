@@ -1,0 +1,30 @@
+
+name: AzureOmsDemo CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v7
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore AzureOmsDemo.csproj
+
+      - name: Build API
+        run: dotnet build AzureOmsDemo.csproj --configuration Release --no-restore
