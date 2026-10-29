@@ -28,3 +28,7 @@ jobs:
 
       - name: Build API
         run: dotnet build AzureOmsDemo.csproj --configuration Release --no-restore
+
+      - name: Run Unit Tests
+        run: dotnet test AzureOmsDemo.Tests/AzureOmsDemo.Tests.csproj --configuration Release
+
